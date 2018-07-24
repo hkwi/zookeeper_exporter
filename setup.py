@@ -9,7 +9,7 @@ setup(name="zookeeper_exporter",
 	py_modules = ["zookeeper_exporter"],
 	entry_points={
 		"console_scripts": [
-			"zookeeper_exporter.cli"
+			"zookeeper_exporter:cli"
 		]
 	},
 	install_requires=["flask"]
