@@ -23,6 +23,9 @@ def query(hostport):
 	finally:
 		s.close()
 
+def safe_label(name):
+	return name.replace("-","_").replace(".","_")
+
 def collect():
 	ex = concurrent.futures.ThreadPoolExecutor(max_workers=3)
 	mresult = ex.map(query, servers)
@@ -46,7 +49,7 @@ def collect():
 					server,
 					v)
 	lut = ["leader", "follower"]
-	params = ",".join(['%s="%s"' % (k,lut.index(v)) for k,v in modes.items()])
+	params = ",".join(['%s="%s"' % (safe_label(k), lut.index(v)) for k,v in modes.items()])
 	values += "zk_modes{%s} 1\r\n" % params
 	return values
 
