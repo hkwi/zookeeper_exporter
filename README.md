@@ -13,5 +13,5 @@ This is suitable for table format, which was [added in grafana 4.3](http://docs.
 
 | mode | metric label value |
 | :--: | :--: |
-[ leader   | 0 |
+| leader   | 0 |
 | follower | 1 |
