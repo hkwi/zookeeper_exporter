@@ -19,7 +19,7 @@ def query(hostport):
 		s.send(b"srvr")
 		return s.recv(4096).decode("UTF-8")
 	except Exception as e:
-		return "Error: %s" % s
+		return "Error: %s" % e
 	finally:
 		s.close()
 
